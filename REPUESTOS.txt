@@ -1,0 +1,147 @@
+### Dibujo del AFN
+
+def grafo(automata, lista, diccionario):
+    grafo = gv.Digraph('G', filename='grafo', format='png')
+
+    estados = [ str(estado) for estado in diccionario.keys() ]
+
+    # Dibujando los nodos.
+    for estado in estados:
+        if estado == str(automata.get_estado_inicial()):
+            grafo.node(estado, estado, color='green')
+        elif estado == str(automata.get_estado_final()):
+            grafo.node(estado, estado, color='red')
+        else:
+            grafo.node(estado, estado, color='blue')
+    
+    # Dibujando las aristas.
+    print("Estados: " + str(estados))
+
+    # Dibujando las transiciones.
+    for key, value in diccionario.items():
+        for simbolo, estado in value:
+            grafo.edge(str(key), str(estado), label=simbolo)
+
+    grafo.render('grafo', view=True)
+
+
+### Siguiente posición.
+        # # Identificando los padres e hijos del árbol.
+        # for c in arbol: 
+            
+        #     if c.etiqueta == "|":
+
+        #         print("Or: ", "Izquierda: ", c.left, "Derecha: ", c.right)
+
+        #         # Verificando si alguno de los hijos es una letra para colocar un número a la par de la letra dentro del diccionario.
+        #         if (c.left.etiqueta not in ["|", "*", "."]) and (c.right.etiqueta not in ["|", "*", "."]):
+                    
+        #             # Agregando el contador de cada elemento a su lado.
+        #             diccionario[c] = [c.left, contador, c.right, contador + 1]
+
+        #             contador += 2
+
+        #         elif c.right.etiqueta not in ["|", "*", "."]:
+
+        #             diccionario[c] = [c.left, c.right, contador]
+
+        #             contador += 1
+                
+        #         elif c.left.etiqueta not in ["|", "*", "."]:
+    
+        #             diccionario[c] = [c.left, c.right, contador]
+
+        #             contador += 1
+        #         else: 
+        #             diccionario[c] = [c.left, c.right]
+                
+
+        #     elif c.etiqueta == ".":
+
+        #         # Verificando si alguno de los hijos es una letra para colocar un número a la par de la letra dentro del diccionario.
+        #         if c.left.etiqueta not in ["|", "*", "."]:
+        #             diccionario[c] = [c.left, contador , c.right]
+        #             contador += 1
+
+        #         elif c.right.etiqueta not in ["|", "*", "."]:
+
+        #             diccionario[c] = [c.left, c.right, contador]
+
+        #             contador += 1
+                
+        #         elif (c.left.etiqueta not in ["|", "*", "."]) and (c.right.etiqueta not in ["|", "*", "."]):
+    
+        #             diccionario[c] = [c.left, c.right, contador]
+
+        #             contador += 1
+        #         else: 
+        #             diccionario[c] = [c.left, c.right]
+
+        #     elif c.etiqueta == "*":
+
+        #         print("Kleene: ", "hijo: ", c.child)
+
+        #         if c.child.etiqueta not in ["|", "*", "."]:
+        #             diccionario[c] = [c.child, contador]
+        #         else: 
+        #             diccionario[c] = [c.child]
+
+        # print("Diccionario: ", diccionario)
+
+
+        # # Calculando el anulable.
+        # for c in arbol:
+        #     resultado = self.anulable(c)
+
+        #     #print("Anulable: ", resultado)
+
+        #     # Aumentando el diccionario con los resultados del anulable.
+        #     anulable[c] = resultado
+        
+        # print("Anulable: ", anulable)
+
+        # # Haciendo una copia del diccionario.
+        # diccionario_anulable = diccionario.copy()
+
+        # # Agregando a la par de cada elemento su anulable.
+        # for c, d in diccionario_anulable.items(): 
+        #     for i in range(len(d)):
+        #         if d[i] in anulable:
+        #             d[i] = [d[i], anulable[d[i]]]
+            
+        # print("Diccionario anulable: ", diccionario_anulable)
+        # #print("Diccionario normal: ", diccionario)
+
+        # #ultimaPos = []
+
+        # diccionario_primera = diccionario.copy()
+        # # Calculando la primera posición del diccionario.
+        # for c, d in diccionario_primera.items():
+        #     for i in range(len(d)):
+        #         # Viendo cual es la lista.
+        #         if type(d[i]) == list:
+        #             # Calculando su primera posición.
+        #             primeraPos = self.primeraPosicion(d[i][0])
+
+        #             print("Primera posición: ", primeraPos)
+
+        #             # Agregando la primera posición a la par de cada elemento.
+        #             d[i] = [d[i], primeraPos]
+
+
+        # diccionario_ultima = diccionario.copy()
+
+        # # Calculando la última posición del diccionario 2.
+        # for c, d in diccionario_ultima.items():
+        #     for i in range(len(d)):
+        #         # Viendo cual es la lista.
+        #         if type(d[i]) == list:
+        #             # Calculando su primera posición.
+        #             ultimaPos = self.ultimaPosicion(d[i][0])
+
+        #             print("Primera posición: ", primeraPos)
+
+        #             # Agregando la primera posición a la par de cada elemento.
+        #             d[i] = [d[i], ultimaPos]
+        
+        # print("Diccionario_ultima: ", diccionario_ultima)

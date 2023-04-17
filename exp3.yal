@@ -1,0 +1,21 @@
+(* La sección {header} es opcional *)
+
+(* Definiendo los tokens a usar en este archivo *)
+
+(* Definiendo el break de línea *)
+let delim = [' ''\t''\n']
+let ws = delim+
+
+(* Primer token: expresión regular que solo acepte letras *)
+let letter = ['a'-'z' 'A'-'Z']
+
+(* Segundo token: expresión regular que acepte números *)
+let digit = ['0'-'9']
+
+(* Tercer token: hacer un digito *)
+let digits = digit+
+
+(* Cuarto token: hacer un identificador *)
+let id = letter(letter|digits)*
+
+(* La sección de {trailer} es opcional *)

@@ -1,0 +1,21 @@
+(* La sección {header} es opcional *)
+
+(* Definiendo los tokens a usar en este archivo *)
+
+(* Definiendo el break de línea *)
+let delim = [' ''\t''\n']
+let ws = delim+
+
+(* Segundo token: expresión regular que acepte números *)
+let digit = ['0'-'9']
+
+(* Tercer token: hacer un digito *)
+let digits = digit+
+
+(* Quinto token: hacer los signos *)
+let sign = ['+'|'-']
+
+(* Quinto token: hacer un número *)
+let number = digits(,digits)?('E'[sign]?digits)?
+
+(* La sección de {trailer} es opcional *)

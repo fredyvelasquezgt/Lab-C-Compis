@@ -1,0 +1,9 @@
+(* Lexer para Gramática No. 1 - Expresiones aritméticas simples para variables *)
+
+(* Introducir cualquier header aqui *)
+
+let letter = ['a'-'z' 'A'-'Z']
+let digit = ['0'-'9']
+let id = letter(letter|digits)*
+
+(* Introducir cualquier trailer aqui *)
